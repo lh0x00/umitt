@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 
 import { EVENT_DISABLE_KEY, EVENT_ONCE_KEY } from 'lib/enums'
-import { defineProperty } from 'lib/utils'
+import { defineProperty, keysOf, createEmptyObject } from 'lib/utils'
 
 class Events {
   events: Object
@@ -14,7 +14,7 @@ class Events {
   removeAllListeners: void
 
   constructor() {
-    this.events = Object.create(null)
+    this.events = createEmptyObject()
     this.addListener = this.on.bind(this)
     this.removeListener = this.off.bind(this)
     this.removeAllListeners = this.offAll.bind(this)
@@ -76,9 +76,9 @@ class Events {
 
   offAll(types: string[]) {
     // get all event types, filter and create new list events
-    const listTypes = Object.keys(this.events)
+    const listTypes = keysOf(this.events)
     const leftTypes = listTypes.filter(type => !types.includes(type))
-    const events = Object.create(null)
+    const events = createEmptyObject()
 
     // assign new list events
     this.events = leftTypes.reduce((acc, type) => {
@@ -101,6 +101,16 @@ class Events {
         this.events[type].splice(idx, 1)
       }
     })
+  }
+
+  eventNames(): string[] {
+    return keysOf(this.events)
+  }
+
+  listeners(type: string): void[] {
+    // return empty array if not have listeners
+    if (!this.events[type]) return []
+    return this.events[type]
   }
 }
 

@@ -182,6 +182,53 @@ describe('Workflow', () => {
     expect(called).toEqual(3)
   })
 
+  test('Use `eventNames` function', () => {
+    const type1 = random()
+    const type2 = random()
+    const emitter = new Events()
+
+    let called = 0
+    expect(called).toEqual(0)
+
+    const callback = () => {
+      called += 1
+    }
+    emitter.on(type1, callback)
+    emitter.on(type2, callback)
+
+    const eventNames = emitter.eventNames()
+    const isHaveNames = [type1, type2].every(type => eventNames.includes(type))
+
+    expect(isHaveNames).toEqual(true)
+    expect(eventNames.length).toEqual(2)
+  })
+
+  test('Use `listeners` function', () => {
+    const type1 = random()
+    const type2 = random()
+    const emitter = new Events()
+
+    const callback1 = () => {}
+    emitter.on(type1, callback1)
+
+    const callback2 = () => {}
+    emitter.on(type2, callback2)
+
+    const listeners1 = emitter.listeners(type1)
+    const isEqualListeners1 = listeners1.every(
+      listener => listener === callback1,
+    )
+    expect(isEqualListeners1).toEqual(true)
+    expect(listeners1.length).toEqual(1)
+
+    const listeners2 = emitter.listeners(type2)
+    const isEqualListeners2 = listeners2.every(
+      listener => listener === callback2,
+    )
+    expect(isEqualListeners2).toEqual(true)
+    expect(listeners2.length).toEqual(1)
+  })
+
   test('Advanced usage', () => {
     const type = random()
     const emitter = new Events()
