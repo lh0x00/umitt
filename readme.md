@@ -7,7 +7,7 @@
 [![github issues][github-issues-image]][github-issues-url]
 [![build status][travis-image]][travis-url]
 
-an upgraded version of Events in Node.js core API for the browser
+An upgraded version of Events in Node.js core API for the browser. We only get features that we think you really need, not the whole.
 
 [npm-url]: https://npmjs.org/package/umitt
 [npm-version-image]: https://badge.fury.io/js/umitt.svg
@@ -202,4 +202,56 @@ emitter.emit('sayName', 'Hieu Lam')
 emitter.removeListener('sayName', callback)
 emitter.emit('sayName', 'Hieu Lam')
 // nothing
+```
+
+#### `disable(eventName)`
+
+Disable the specified listeners for the event named `eventName`. When listeners was disabled, it's still existed but not run when `emit` called. To enbale listeners for the event, just use `enable(eventName)`.
+
+```js
+emitter.disable('eventName)
+```
+
+**Example**
+```js
+const callback = (name) => {
+  console.log('my name is', name)
+}
+emitter.on('sayName', callback)
+emitter.emit('sayName', 'Hieu Lam')
+// prints: my name is Hieu Lam
+
+emitter.disable('sayName')
+emitter.emit('sayName', 'Hieu Lam')
+// nothing
+
+emitter.enable('sayName')
+emitter.emit('sayName', 'Hieu Lam')
+// prints: my name is Hieu Lam
+```
+
+#### `enable(eventName)`
+
+Enable the specified listeners for the event named `eventName`.
+
+```js
+emitter.enable('eventName)
+```
+
+**Example**
+```js
+const callback = (name) => {
+  console.log('my name is', name)
+}
+emitter.on('sayName', callback)
+emitter.emit('sayName', 'Hieu Lam')
+// prints: my name is Hieu Lam
+
+emitter.disable('sayName')
+emitter.emit('sayName', 'Hieu Lam')
+// nothing
+
+emitter.enable('sayName')
+emitter.emit('sayName', 'Hieu Lam')
+// prints: my name is Hieu Lam
 ```
