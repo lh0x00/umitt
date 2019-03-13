@@ -151,6 +151,37 @@ describe('Workflow', () => {
     expect(getLength(emitter.events[type2])).toEqual(1)
   })
 
+  test('Use `disable` and `enable` function', () => {
+    const type = random()
+    const emitter = new Events()
+
+    let called = 0
+    expect(called).toEqual(0)
+
+    const callback = () => {
+      called += 1
+    }
+    emitter.on(type, callback)
+    expect(getLength(emitter.events[type])).toEqual(1)
+
+    emitter.emit(type)
+    expect(called).toEqual(1)
+
+    emitter.emit(type)
+    expect(called).toEqual(2)
+
+    emitter.disable(type)
+    expect(getLength(emitter.events[type])).toEqual(1)
+
+    emitter.emit(type)
+    expect(called).toEqual(2)
+
+    emitter.enable(type)
+
+    emitter.emit(type)
+    expect(called).toEqual(3)
+  })
+
   test('Advanced usage', () => {
     const type = random()
     const emitter = new Events()

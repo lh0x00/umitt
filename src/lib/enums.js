@@ -1,5 +1,5 @@
 /* @flow */
 
-export const EVENT_DISABLE_KEY = 'event.disabled'
+export const EVENT_DISABLE_KEY = 'isDisabledEvent'
 
-export const EVENT_ONCE_KEY = 'event.once'
+export const EVENT_ONCE_KEY = 'isOnceEvent'
