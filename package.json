@@ -1,7 +1,7 @@
 {
   "name": "umitt",
-  "version": "0.0.1",
-  "description": "a package works like Events in Node.js core API for the browser",
+  "version": "0.0.2",
+  "description": "an upgraded version of Events in Node.js core API for the browser",
   "main": "dist/umitt.cjs.js",
   "module": "dist/umitt.esm.js",
   "browser": "dist/umitt.js",
