@@ -1,6 +1,6 @@
 # umitt
 
-## About
+# About
 
 [![npm version][npm-version-image]][npm-url]
 [![npm downloads][npm-downloads-image]][npm-url]
@@ -17,9 +17,9 @@ An upgraded version of Events in Node.js core API for the browser. We only get f
 [travis-image]: https://travis-ci.com/lamhieu-vk/umitt.svg?branch=master
 [travis-url]: https://travis-ci.com/lamhieu-vk/umitt
 
-## Usage
+# Usage
 
-### Installation
+## Installation
 
 ```bash
 $ npm install umitt
@@ -28,7 +28,7 @@ $ npm install umitt
 $ yarn add umitt
 ```
 
-### Example
+## Example
 
 ```js
 import Events from 'umitt'
@@ -44,9 +44,9 @@ emitter.on('connection', (name) => {
 emitter.emit('connection', 'Hieu Lam')
 ```
 
-### Documents
+## Documents
 
-#### `Events: emitter`
+### `Events: emitter`
 
 The Events class is defined and exposed by the events module:
 ```js
@@ -57,7 +57,7 @@ const emitter = new Events()
 
 All EventEmitters emit the event `'newListener'` when new listeners are added and `'removeListener'` when existing listeners are removed.
 
-#### `addListener(eventName, listener)`
+### `addListener(eventName, listener)`
 
 Alias for `on(eventName, listener)`.
 
@@ -65,7 +65,7 @@ Alias for `on(eventName, listener)`.
 emitter.addListener('eventName', callback)
 ```
 
-#### `emit(eventName[, ...args])`
+### `emit(eventName[, ...args])`
 
 Synchronously calls each of the listeners registered for the event named `eventName`, in the order they were registered, passing the supplied arguments to each.
 
@@ -77,7 +77,7 @@ emitter.emit('eventName')
 emitter.emit('eventName', 'arg1', 'arg2', ...)
 ```
 
-#### `eventNames()`
+### `eventNames()`
 
 Returns an array listing the events for which the emitter has registered listeners.
 
@@ -85,7 +85,7 @@ Returns an array listing the events for which the emitter has registered listene
 emitter.eventsName()
 ```
 
-**Example**
+#### Example
 ```js
 const callback = () => {}
 
@@ -96,7 +96,7 @@ console.log(emitter.eventNames())
 // prints: [ 'eventName' ]
 ```
 
-#### `listeners(eventName)`
+### `listeners(eventName)`
 
 Returns a copy of the array of listeners for the event named `eventName`.
 
@@ -104,7 +104,7 @@ Returns a copy of the array of listeners for the event named `eventName`.
 emitter.listeners('eventName')
 ```
 
-**Example**
+#### Example
 ```js
 const callback = () => {}
 
@@ -115,11 +115,11 @@ console.log(emitter.listeners('eventName'))
 // prints: [ [Function] ]
 ```
 
-#### `off(eventName, listener)`
+### `off(eventName, listener)`
 
 Alias for `removeListener(eventName, listener)`.
 
-#### `on(eventName, listener)`
+### `on(eventName, listener)`
 
 Adds the listener function to the end of the listeners array for the event named `eventName`. No checks are made to see if the listener has already been added. Multiple calls passing the same combination of `eventName` and listener will result in the listener being added, and called, multiple times.
 
@@ -135,7 +135,7 @@ emitter.on('eventName', (arg1, arg2) => {
 });
 ```
 
-**Example**
+#### Example
 ```js
 emitter.on('sayName', (name) => {
   console.log('my name is', name)
@@ -146,7 +146,7 @@ emitter.emit('sayName', 'Hieu Lam')
 // my name is Hieu Lam
 ```
 
-#### `once(eventName, listener)`
+### `once(eventName, listener)`
 
 Adds a **one-time** listener function for the event named `eventName`. The next time `eventName` is triggered, this listener is removed and then invoked.
 ```js
@@ -161,7 +161,7 @@ emitter.once('eventName', (arg1, arg2) => {
 });
 ```
 
-**Example**
+#### Example
 ```js
 emitter.once('sayName', (name) => {
   console.log('my name is', name)
@@ -173,7 +173,7 @@ emitter.emit('sayName', 'John Smith')
 // my name is Hieu Lam
 ```
 
-#### `removeAllListeners([eventName])`
+### `removeAllListeners([eventName])`
 
 Removes all listeners, or those of the specified `eventName`.
 
@@ -181,7 +181,7 @@ Removes all listeners, or those of the specified `eventName`.
 emitter.removeAllListeners(['eventName'])
 ```
 
-#### `removeListener(eventName, listener)`
+### `removeListener(eventName, listener)`
 
 Removes the specified listener from the listener array for the event named `eventName`.
 `removeListener()` will remove, at most, one instance of a listener from the listener array. If any single listener has been added multiple times to the listener array for the specified `eventName`, then `removeListener()` must be called multiple times to remove each instance.
@@ -190,7 +190,7 @@ Removes the specified listener from the listener array for the event named `even
 emitter.removeListener('eventName', callback)
 ```
 
-**Example**
+#### Example
 ```js
 const callback = (name) => {
   console.log('my name is', name)
@@ -204,7 +204,7 @@ emitter.emit('sayName', 'Hieu Lam')
 // nothing
 ```
 
-#### `disable(eventName)`
+### `disable(eventName)`
 
 Disable the specified listeners for the event named `eventName`. When listeners was disabled, it's still existed but not run when `emit` called. To enbale listeners for the event, just use `enable(eventName)`.
 
@@ -212,7 +212,7 @@ Disable the specified listeners for the event named `eventName`. When listeners 
 emitter.disable('eventName)
 ```
 
-**Example**
+#### Example
 ```js
 const callback = (name) => {
   console.log('my name is', name)
@@ -230,7 +230,7 @@ emitter.emit('sayName', 'Hieu Lam')
 // prints: my name is Hieu Lam
 ```
 
-#### `enable(eventName)`
+### `enable(eventName)`
 
 Enable the specified listeners for the event named `eventName`.
 
@@ -238,7 +238,7 @@ Enable the specified listeners for the event named `eventName`.
 emitter.enable('eventName)
 ```
 
-**Example**
+#### Example
 ```js
 const callback = (name) => {
   console.log('my name is', name)

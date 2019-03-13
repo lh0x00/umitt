@@ -1,7 +1,7 @@
 {
   "name": "umitt",
-  "version": "0.0.2",
-  "description": "an upgraded version of Events in Node.js core API for the browser",
+  "version": "0.0.3",
+  "description": "An upgraded version of Events in Node.js core API for the browser. We only get features that we think you really need, not the whole.",
   "main": "dist/umitt.cjs.js",
   "module": "dist/umitt.esm.js",
   "browser": "dist/umitt.js",
@@ -15,7 +15,8 @@
     "build:dist": "rollup -c",
     "build:node": "babel src -d dist",
     "test": "jest",
-    "lint": "eslint src && flow"
+    "lint": "eslint src && flow",
+    "done": "npm run lint && npm run test && npm run build"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
