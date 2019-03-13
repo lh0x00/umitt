@@ -110,7 +110,7 @@ class Events {
   listeners(type: string): void[] {
     // return empty array if not have listeners
     if (!this.events[type]) return []
-    return this.events[type]
+    return Array.from(this.events[type])
   }
 }
 
