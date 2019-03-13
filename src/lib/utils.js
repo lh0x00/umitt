@@ -10,4 +10,4 @@ export const defineProperty = (object: Object, key: string, value: any) => {
 
 export const keysOf = (object: Object): string[] => Object.keys(object)
 
-export const createEmptyObject = (): Object => Object.create(null)
+export const createEmptyObject = () => Object.create(null)
