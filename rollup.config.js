@@ -13,6 +13,7 @@ const babelPlugin = babel({
   runtimeHelpers: true,
   exclude: 'node_modules/**',
 })
+const uglifyPlugin = uglify()
 
 export default [
   {
@@ -22,14 +23,22 @@ export default [
       file: pkg.browser,
       format: 'umd',
     },
-    plugins: [resolvePlugin, babelPlugin, commonjsPlugin, uglify()],
+    plugins: [resolvePlugin, babelPlugin, commonjsPlugin, uglifyPlugin],
   },
   {
-    input: 'src/index.js',
+    input,
     external: ['ms'],
     output: [
       { file: pkg.main, format: 'cjs' },
       { file: pkg.module, format: 'es' },
+    ],
+    plugins: [
+      resolve({
+        customResolveOptions: {
+          moduleDirectory: 'src',
+        },
+      }),
+      babelPlugin,
     ],
   },
 ]
