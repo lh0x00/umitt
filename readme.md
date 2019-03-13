@@ -209,7 +209,7 @@ emitter.emit('sayName', 'Hieu Lam')
 Disable the specified listeners for the event named `eventName`. When listeners was disabled, it's still existed but not run when `emit` called. To enbale listeners for the event, just use `enable(eventName)`.
 
 ```js
-emitter.disable('eventName)
+emitter.disable('eventName')
 ```
 
 #### Example
@@ -235,7 +235,7 @@ emitter.emit('sayName', 'Hieu Lam')
 Enable the specified listeners for the event named `eventName`.
 
 ```js
-emitter.enable('eventName)
+emitter.enable('eventName')
 ```
 
 #### Example
