@@ -1,5 +1,7 @@
 # umitt
 
+![image](https://user-images.githubusercontent.com/9839768/54528808-98509380-49b0-11e9-9ae0-9a29ea265e2f.png)
+
 # About
 
 [![npm version][npm-version-image]][npm-url]
@@ -39,6 +41,8 @@ $ yarn add umitt
 // jsdelivr
 <script src="https://cdn.jsdelivr.net/npm/umitt/dist/umitt.js"></script>
 ```
+
+**Note** use CDN in browser, you can call `umitt` from Window API. it is available at `window.umitt`
 
 ## Example
 
