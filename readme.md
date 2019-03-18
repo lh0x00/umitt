@@ -6,6 +6,7 @@
 [![npm downloads][npm-downloads-image]][npm-url]
 [![github issues][github-issues-image]][github-issues-url]
 [![build status][travis-image]][travis-url]
+[![size][size-image]][npm-url]
 
 An upgraded version of Events in Node.js core API for the browser. We only get features that we think you really need, not the whole.
 
@@ -16,6 +17,7 @@ An upgraded version of Events in Node.js core API for the browser. We only get f
 [github-issues-url]: https://github.com/lamhieu-vk/umitt/issues
 [travis-image]: https://travis-ci.com/lamhieu-vk/umitt.svg?branch=master
 [travis-url]: https://travis-ci.com/lamhieu-vk/umitt
+[size-image]: http://img.badgesize.io/https://cdn.jsdelivr.net/npm/umitt/dist/umitt.js?compression=gzip
 
 # Usage
 
@@ -26,6 +28,16 @@ $ npm install umitt
 
 // or yarn
 $ yarn add umitt
+```
+
+### CDN
+
+```html
+// unpkg
+<script src="https://unpkg.com/umitt/dist/umitt.js"></script>
+
+// jsdelivr
+<script src="https://cdn.jsdelivr.net/npm/umitt/dist/umitt.js"></script>
 ```
 
 ## Example
