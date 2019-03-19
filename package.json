@@ -1,6 +1,6 @@
 {
   "name": "umitt",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "An upgraded version of Events in Node.js core API for the browser. We only get features that we think you really need, not the whole.",
   "main": "dist/umitt.cjs.js",
   "module": "dist/umitt.esm.js",
@@ -9,6 +9,7 @@
   "author": "Hieu Lam <lamhieu.vk@gmail.com>",
   "license": "MIT",
   "private": false,
+  "keywords": ["umitt", "events", "event-emitter", "node-api", "performance", "browser", "server"],
   "scripts": {
     "build": "npm run build:clean && npm run build:dist",
     "build:clean": "rimraf dist",
